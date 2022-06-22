@@ -1,7 +1,7 @@
 project(dukto)
 cmake_minimum_required(VERSION 2.8.12)
 
-OPTION(USE_QT5 "Build with qt5" OFF)
+OPTION(USE_QT5 "Build with qt5" ON)
 OPTION(USE_UPDATER "Add updater for application" OFF)
 OPTION(USE_SINGLE_APP "Enable only single instance" OFF)
 
@@ -36,16 +36,11 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 if(USE_QT5)
-    find_package(Qt5Widgets REQUIRED)
-    find_package(Qt5Network REQUIRED)
-    find_package(Qt5Declarative REQUIRED)
+    find_package(Qt5 COMPONENTS Core Gui Widgets Network Quick QuickControls2 REQUIRED)
+    set(QtModule Core Gui Widgets Network Quick QuickControls2)
+
     set(CMAKE_AUTOMOC ON)
     set(CMAKE_INCLUDE_CURRENT_DIR ON)
-else()
-    find_package(Qt4 COMPONENTS QtCore QtGui QtNetwork QtDeclarative REQUIRED)
-    include("${QT_USE_FILE}")
-    add_definitions(${QT_DEFINITIONS})
-    include_directories(${QT_MKSPECS_DIR}/default)
 endif()
 
 set(DUKTO_HDR
@@ -99,9 +94,6 @@ endif()
 
 if(USE_QT5)
     qt5_add_resources(DUKTO_RESOURCES_RCC ${DUKTO_RESOURCES})
-else()
-    QT4_WRAP_CPP(DUKTO_MOC ${DUKTO_MOC_HDR})
-    QT4_ADD_RESOURCES(DUKTO_RESOURCES_RCC ${DUKTO_RESOURCES})
 endif()
 
 include_directories(qmlapplicationviewer)
@@ -117,7 +109,7 @@ add_executable(${PROJECT_NAME}
                 ${DUKTO_MOC}
                 ${DUKTO_RESOURCES_RCC})
 if(USE_QT5)
-    qt5_use_modules(${PROJECT_NAME} Gui Widgets Network Declarative)
+    qt5_use_modules(${PROJECT_NAME} ${QtModule})
     set(QT_LIBRARIES "")
 endif()
 
