@@ -47,7 +47,7 @@ Item {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: Qt.openUrlExternally("http://www.msec.it/dukto/r5update.php")
+            function onClicked() { Qt.openUrlExternally("http://www.msec.it/dukto/r5update.php") }
         }
 
         Behavior on x { NumberAnimation { duration: 500; easing.type: "OutCubic" } }

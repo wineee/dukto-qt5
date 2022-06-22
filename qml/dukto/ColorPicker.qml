@@ -32,7 +32,7 @@ Rectangle {
             id: sbPicker
             hueColor : ColorUtils.hsba(hueSlider.value, 1.0, 1.0, 1.0, 1.0)
             width: parent.height; height: parent.height
-            onChanged: {
+            function onChanged() {
                 colorPicker.changed();
             }
         }
@@ -57,7 +57,9 @@ Rectangle {
             ColorSlider {
                 id: hueSlider
                 anchors.fill: parent
-                onChanged: colorPicker.changed()
+                function onChanged() {
+                    colorPicker.changed()
+                }
             }
         }
     }

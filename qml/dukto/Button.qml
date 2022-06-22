@@ -44,6 +44,8 @@ Rectangle {
         anchors.fill: parent
         hoverEnabled: true
         enabled: button.buttonEnabled
-        onClicked: button.clicked();
+        function onClicked() {
+            button.clicked();
+        }
     }
 }

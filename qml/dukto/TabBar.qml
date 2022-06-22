@@ -43,7 +43,7 @@ Item {
                 id: buddyTextMouseArea
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: {
+                function onClicked() {
                     tabBar.state = "buddies";
                     tabBar.clicked("buddies");
                 }
@@ -63,7 +63,7 @@ Item {
                 id: recentTextMouseArea
                 anchors.fill: parent;
                 hoverEnabled: true;
-                onClicked: {
+                function onClicked() {
                     tabBar.state = "recent";
                     tabBar.clicked("recent");
                 }
@@ -80,7 +80,7 @@ Item {
                 id: aboutTextMouseArea
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: {
+                function onClicked() {
                     tabBar.state = "about";
                     tabBar.clicked("about");
                 }

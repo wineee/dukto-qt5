@@ -59,7 +59,7 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: guiBehind.openDestinationFolder();
+                function onClicked() {guiBehind.openDestinationFolder();}
             }
         }
         SText {
@@ -81,7 +81,7 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
+                function onClicked() {
                     guiBehind.refreshIpList();
                     toolBar.clicked("ip");
                 }
@@ -107,7 +107,7 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: toolBar.clicked("settings")
+                function onClicked() {toolBar.clicked("settings")}
             }
         }
         SText {
@@ -134,7 +134,7 @@ Item {
             anchors.left: moreIcon.left
             anchors.right: parent.right
 
-            onClicked: {
+            function onClicked() {
                if (toolBar.state == "WithoutLabels")
                    toolBar.state = "WithLabels";
                else

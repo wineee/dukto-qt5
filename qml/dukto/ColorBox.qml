@@ -37,6 +37,8 @@ Rectangle {
         id: boxArea
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: root.clicked(parent.color)
+        function onClicked() {
+            root.clicked(parent.color)
+        }
     }
 }

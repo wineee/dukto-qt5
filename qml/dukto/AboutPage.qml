@@ -55,7 +55,9 @@ Item {
         y: 100 + 75
         font.pixelSize: 32
         text: "Website: <a href=\"http://www.msec.it/dukto/\">http://www.msec.it/dukto/</a>"
-        onLinkActivated: Qt.openUrlExternally(link)
+        function onLinkActivated(link) {
+            Qt.openUrlExternally(link)
+        }
         color: "#888888"
     }
 
@@ -69,6 +71,8 @@ Item {
         color: "#888888"
         wrapMode: "WordWrap"
         text: "This application and it's source code are released freely as open source project.<br>If you like this application please consider <a href=\"http://www.msec.it/\">making a donation</a>."
-        onLinkActivated: Qt.openUrlExternally(link)
+        function onLinkActivated(link) {
+            Qt.openUrlExternally(link)
+        }
     }
 }

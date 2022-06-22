@@ -40,22 +40,32 @@ Rectangle {
 
     Connections {
          target: guiBehind
-         onTransferStart: duktoOverlay.state = "progress"
-         onReceiveCompleted: {
+         function onTransferStart() {
+             duktoOverlay.state = "progress"
+         }
+         function onReceiveCompleted() {
              duktoOverlay.state = ""
              duktoInner.gotoPage("recent");
          }
-         onGotoTextSnippet: duktoOverlay.state = "showtext"
-         onGotoSendPage: duktoOverlay.state = "send";
-         onGotoMessagePage: duktoOverlay.state = "message";
-         onHideAllOverlays: duktoOverlay.state = "";
+         function onGotoTextSnippet() {
+             duktoOverlay.state = "showtext"
+         }
+         function onGotoSendPage() {
+             duktoOverlay.state = "send";
+         }
+         function onGotoMessagePage() {
+             duktoOverlay.state = "message";
+         }
+         function onHideAllOverlays() {
+             duktoOverlay.state = "";
+         }
     }
 
     DuktoInner {
         id: duktoInner
         anchors.fill: parent
-        onShowIpList: duktoOverlay.state = "ip"
-        onShowSettings: {
+        function onShowIpList() {duktoOverlay.state = "ip"}
+        function onShowSettings() {
             duktoOverlay.refreshSettingsColor();
             duktoOverlay.state = "settings";
         }

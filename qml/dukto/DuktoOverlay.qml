@@ -23,7 +23,6 @@ Rectangle {
     state: guiBehind.showTermsOnStart ? "termspage" : ""
 
     function refreshSettingsColor() {
-
         settingsPage.refreshColor();
     }
 
@@ -47,7 +46,7 @@ Rectangle {
         width: parent.width
         x: -50
         opacity: 0
-        onBack: parent.state = ""
+        function onBack() {parent.state = ""}
     }
 
     ProgressPage {
@@ -67,8 +66,8 @@ Rectangle {
         width: parent.width
         x: -50
         opacity: 0
-        onBack: parent.state = ""
-        onBackOnSend: {
+        function onBack() {parent.state = ""}
+        function onBackOnSend() {
             sendPage.setDestinationFocus();
             parent.state = "send"
         }
@@ -80,7 +79,7 @@ Rectangle {
         height: parent.height
         x: -50
         opacity: 0
-        onBack: parent.state = ""
+        function onBack() {parent.state = ""}
     }
 
     SendPage {
@@ -91,8 +90,8 @@ Rectangle {
         height: parent.height
         x: -50
         opacity: 0
-        onBack: parent.state = ""
-        onShowTextPage: {
+        function onBack() {parent.state = ""}
+        function onShowTextPage() {
             showTextPage.setTextEditFocus();
             parent.state = "showtext";
         }
@@ -106,7 +105,7 @@ Rectangle {
         width: parent.width
         x: -50
         opacity: 0
-        onBack: parent.state = backState
+        function onBack() {parent.state = backState}
     }
 
     TermsPage {
@@ -116,7 +115,7 @@ Rectangle {
         width: parent.width
         x: -50
         opacity: 0
-        onOk: {
+        function onOk() {
             guiBehind.showTermsOnStart = false;
             parent.state = ""
         }

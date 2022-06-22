@@ -34,8 +34,12 @@ Item {
                 root.changed();
             }
         }
-        onPositionChanged: handleMouse(mouse)
-        onPressed: handleMouse(mouse)
+        function onPositionChanged(mouse) {
+            handleMouse(mouse)
+        }
+        function onPressed(mouse) {
+            handleMouse(mouse)
+        }
     }
 }
 

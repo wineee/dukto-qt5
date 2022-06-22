@@ -139,7 +139,7 @@ Rectangle {
         width: 300
         buttonEnabled: guiBehind.currentTransferBuddy !== ""
         label: "Send some text"
-        onClicked: sendPage.showTextPage();
+        function onClicked() {sendPage.showTextPage();}
     }
 
     ButtonDark {
@@ -150,7 +150,7 @@ Rectangle {
         width: 300
         label: "Send text from clipboard"
         buttonEnabled: guiBehind.clipboardTextAvailable && (guiBehind.currentTransferBuddy !== "")
-        onClicked: guiBehind.sendClipboardText()
+        function onClicked() {guiBehind.sendClipboardText()}
     }
 
     ButtonDark {
@@ -161,7 +161,7 @@ Rectangle {
         width: 300
         buttonEnabled: guiBehind.currentTransferBuddy !== ""
         label: "Send some files"
-        onClicked: guiBehind.sendSomeFiles()
+        function onClicked() {guiBehind.sendSomeFiles()}
     }
 
     ButtonDark {
@@ -172,7 +172,7 @@ Rectangle {
         width: 300
         buttonEnabled: guiBehind.currentTransferBuddy !== ""
         label: "Send a folder"
-        onClicked: guiBehind.sendFolder()
+        function onClicked() {guiBehind.sendFolder()}
     }
 /*
     ButtonDark {

@@ -43,7 +43,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        onClicked: {
+        function onClicked() {
             if (command == "ip") showIpList();
             if (command == "settings") showSettings();
         }

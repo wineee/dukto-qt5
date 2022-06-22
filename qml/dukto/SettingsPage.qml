@@ -106,7 +106,7 @@ Rectangle {
         anchors.top: textPath.bottom
         anchors.topMargin: 10
         label: "Change folder"
-        onClicked: guiBehind.changeDestinationFolder()
+        function onClicked() {guiBehind.changeDestinationFolder()}
     }
 
     SText {
@@ -124,7 +124,7 @@ Rectangle {
         anchors.top: labelColor.bottom
         anchors.topMargin: 8
         anchors.left: labelColor.left
-        onChanged: {
+        function onChanged() {
             guiBehind.changeThemeColor(colorValue);
         }
     }
@@ -136,7 +136,7 @@ Rectangle {
         anchors.left: picker.right
         anchors.leftMargin: 20
         color: "#248B00"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -145,7 +145,7 @@ Rectangle {
         anchors.left: cbox1.right
         anchors.leftMargin: 15
         color: "#A80000"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -154,7 +154,7 @@ Rectangle {
         anchors.left: cbox2.right
         anchors.leftMargin: 15
         color: "#3A6CBC"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -163,7 +163,7 @@ Rectangle {
         anchors.topMargin: 15
         anchors.left: cbox1.left
         color: "#2e3436" // "#704214"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -172,7 +172,7 @@ Rectangle {
         anchors.top: cbox4.top
         anchors.leftMargin: 15
         color: "#B77994"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -181,7 +181,7 @@ Rectangle {
         anchors.left: cbox5.right
         anchors.leftMargin: 15
         color: "#5B2F42"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -190,7 +190,7 @@ Rectangle {
         anchors.topMargin: 15
         anchors.left: cbox4.left
         color: "#353B56"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -199,7 +199,7 @@ Rectangle {
         anchors.left: cbox7.right
         anchors.leftMargin: 15
         color: "#FB8504"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 
     ColorBox {
@@ -208,6 +208,6 @@ Rectangle {
         anchors.left: cbox8.right
         anchors.leftMargin: 15
         color: "#6D0D71"
-        onClicked: picker.setColor(color)
+        function onClicked() {picker.setColor(color)}
     }
 }

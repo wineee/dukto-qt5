@@ -43,7 +43,7 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: {
+            function onClicked() {
                 if (guiBehind.textSnippetSending)
                     showTextPage.backOnSend();
                 else
@@ -123,7 +123,7 @@ Rectangle {
                 textFormat: TextEdit.PlainText
                 readOnly: guiBehind.textSnippetSending ? false : true
                 text: guiBehind.textSnippet
-                onCursorRectangleChanged: flickableText.ensureVisible(cursorRectangle)
+                function onCursorRectangleChanged(){flickableText.ensureVisible(cursorRectangle)}
             }
         }
     }
@@ -136,7 +136,7 @@ Rectangle {
         anchors.bottomMargin: 10
         buttonEnabled: guiBehind.textSnippetSending ? guiBehind.clipboardTextAvailable : true
         label: guiBehind.textSnippetSending ? "Paste from clipboard" : "Copy to clipboard"
-        onClicked: {
+        function onClicked() {
             if (guiBehind.textSnippetSending)
                 textEditSnippet.paste();
             else {
@@ -156,7 +156,7 @@ Rectangle {
         label: "Send"
         visible: guiBehind.textSnippetSending
         buttonEnabled: textEditSnippet.text != ""
-        onClicked: {
+        function onClicked() {
             guiBehind.textSnippet = textEditSnippet.text;
             guiBehind.sendText();
         }

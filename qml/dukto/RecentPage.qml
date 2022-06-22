@@ -65,7 +65,7 @@ Item {
                      id: recentMouseArea
                      anchors.fill: parent
                      hoverEnabled: true
-                     onClicked: {
+                     function onClicked() {
                          if (type == "text")
                             guiBehind.showTextSnippet(value, sender);
                          else if (type == "file")

@@ -75,7 +75,7 @@ Rectangle {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
+                function onClicked() {
                     guiBehind.resetProgressStatus();
                     messagePage.back(guiBehind.messagePageBackState);
                 }
