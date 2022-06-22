@@ -1,5 +1,5 @@
 project(dukto)
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.14)
 
 OPTION(USE_QT5 "Build with qt5" ON)
 OPTION(USE_UPDATER "Add updater for application" OFF)
@@ -107,7 +107,8 @@ add_executable(${PROJECT_NAME}
                 ${DUKTO_HDR}
                 ${DUKTO_SRC}
                 ${DUKTO_MOC}
-                ${DUKTO_RESOURCES_RCC})
+                ${DUKTO_RESOURCES_RCC}
+                ${DUKTO_RESOURCES})
 if(USE_QT5)
     qt5_use_modules(${PROJECT_NAME} ${QtModule})
     set(QT_LIBRARIES "")
