@@ -36,8 +36,8 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 if(USE_QT5)
-    find_package(Qt5 COMPONENTS Core Gui Widgets Network Quick QuickControls2 REQUIRED)
-    set(QtModule Core Gui Widgets Network Quick QuickControls2)
+    find_package(Qt5 COMPONENTS Core Gui Widgets Network Quick QuickControls2 QuickWidgets REQUIRED)
+    set(QtModule Core Gui Widgets Network Quick QuickControls2 QuickWidgets)
 
     set(CMAKE_AUTOMOC ON)
     set(CMAKE_INCLUDE_CURRENT_DIR ON)

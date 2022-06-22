@@ -25,20 +25,22 @@
 #include "systemtray.h"
 
 #include <QHash>
-#include <QDeclarativeView>
-#include <QDeclarativeContext>
+#include <QQuickView>
+#include <QQmlContext>
 #include <QTimer>
 #include <QDesktopServices>
 #include <QDir>
 #include <QFileDialog>
 #include <QClipboard>
 #include <QApplication>
-#include <QDeclarativeProperty>
+#include <QQmlProperty>
 #include <QGraphicsObject>
 #include <QRegExp>
 #include <QThread>
 #include <QTemporaryFile>
 #include <QDesktopWidget>
+#include <QDateTime>
+
 #if defined(Q_WS_S60)
 #define SYMBIAN
 #endif
@@ -129,13 +131,14 @@ GuiBehind::GuiBehind(DuktoWindow* view) :
     // Load GUI
     view->setSource(QUrl("qrc:/qml/dukto/Dukto.qml"));
 #ifndef Q_WS_S60
-    view->restoreGeometry(mSettings->windowGeometry());
+    // TODO
+    // view->setGeometry(mSettings->windowGeometry());
 #endif
 
     // Start random rotate
     mShowBackTimer = new QTimer(this);
     connect(mShowBackTimer, SIGNAL(timeout()), this, SLOT(showRandomBack()));
-    qsrand(QDateTime::currentDateTime().toTime_t());;
+    qsrand((uint)(QDateTime::currentDateTime().toMSecsSinceEpoch()));
     mShowBackTimer->start(10000);
 
 #ifdef UPDATER
